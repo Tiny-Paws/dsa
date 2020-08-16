@@ -36,16 +36,17 @@ void BST::preorder(Node* node) {
 void BST::inorder(Node* node) {
   if(!node)
     return;
-  this->inorder(this->root->left);
-  std::cout << this->root->data << " ";
+  this->inorder(node->left);
+  std::cout << node->data << " ";
+  this->inorder(node->right);
 }
 
 void BST::postorder(Node* node) {
   if(!node)
     return;
-  this->postorder(this->root->right);
-  this->postorder(this->root->left);
-  std::cout << this->root->data << " ";
+  this->postorder(node->right);
+  this->postorder(node->left);
+  std::cout << node->data << " ";
 }
 
 void BST::tree_view() {

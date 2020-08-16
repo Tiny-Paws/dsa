@@ -79,6 +79,10 @@ void repl::bst(std::vector<std::string> fields) {
   else if(fields[1] == "show") {
     if(fields[2] == "preorder")
       bst->preorder(bst->root);
+    else if(fields[2] == "inorder")
+      bst->inorder(bst->root);
+    else if(fields[2] == "postorder")
+      bst->postorder(bst->root);
     else if(fields[2] == "height")
       std::cout << bst->height(bst->root) << std::endl;
     std::cout << std::endl;
