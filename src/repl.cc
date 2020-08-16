@@ -4,7 +4,7 @@ void repl::run() {
   std::string command;
 
   while(command != "q") {
-    std::cout << "> " << std::endl;
+    std::cout << "> ";
     std::getline(std::cin, command);
     std::istringstream ss(command);
     std::vector<std::string> fields(std::istream_iterator<std::string>{ss},
@@ -27,12 +27,21 @@ decltype(*repl::list_bst) repl::list(std::vector<std::string> fields) {
 
   if(fields[0] == "bst")
     return *list_bst;
+  else if(fields[0] == "linkedlist")
+    return *list_linkedlist;
 
   return *err;
 }
 
+// CHANGE THESE LIST FUNCTIONS TO TAKE AN ARG AND ITERATE OVER
+// SINCE IT DOES THE SAME THING
 void repl::list_bst() {
   for(const auto& item : state.bst)
+    std::cout << item.first << std::endl;
+}
+
+void repl::list_linkedlist() {
+  for(const auto& item : state.linkedlist)
     std::cout << item.first << std::endl;
 }
 
@@ -44,6 +53,12 @@ void repl::create(std::vector<std::string> fields) {
 
   if(fields[0] == "bst")
     create_bst(fields[1]);
+  else if(fields[0] == "linkedlist")
+    create_linkedlist(fields[1]);
+}
+
+void repl::create_linkedlist(std::string name) {
+  state.linkedlist.emplace(name, new LinkedList());
 }
 
 void repl::create_bst(std::string name) {
