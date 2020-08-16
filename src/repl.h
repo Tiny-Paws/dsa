@@ -22,4 +22,5 @@ namespace repl {
   decltype(*list_bst) list(std::vector<std::string>);
   void create(std::vector<std::string>);
   void bst(std::vector<std::string>);
+  void linkedlist(std::vector<std::string>);
 }

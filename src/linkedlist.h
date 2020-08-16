@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 struct SinglyLinkedListNode {
   int data;
   SinglyLinkedListNode* next;
@@ -30,6 +32,7 @@ struct LinkedList {
     delete this->head;
   }
   void insert(int);
+  void show_ordered();
 private:
   SinglyLinkedListNode* insert(SinglyLinkedListNode*, int);
 };

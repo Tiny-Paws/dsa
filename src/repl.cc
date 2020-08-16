@@ -17,6 +17,8 @@ void repl::run() {
       create(std::vector<std::string>(fields.cbegin()+1, fields.cend()));
     else if(fields[0] == "bst")
       bst(std::vector<std::string>(fields.cbegin()+1, fields.cend()));
+    else if(fields[0] == "linkedlist")
+      linkedlist(std::vector<std::string>(fields.cbegin()+1, fields.cend()));
   }
 }
 
@@ -102,4 +104,24 @@ void repl::bst(std::vector<std::string> fields) {
       std::cout << bst->height(bst->root) << std::endl;
     std::cout << std::endl;
   }
+}
+
+void repl::linkedlist(std::vector<std::string> fields) {
+  // fields            0      1      2
+  // [datastructure] [name] insert [data]
+  // [datastructure] [name] show   [display method]
+  // [datastructure] [name] delete [data]
+  if(fields.size() < 3) {
+    std::cout << "Wrong command" << std::endl;
+    return;
+  }
+  if(!state.linkedlist.count(fields[0])) {
+    std::cout << "Datastructure does not exist" << std::endl;
+    return;
+  }
+  auto linkedlist = state.linkedlist[fields[0]];
+  if(fields[1] == "insert") // NEED A TRY CATCH
+    linkedlist->insert(std::stoi(fields[2]));
+  else if(fields[1] == "show")
+    linkedlist->show_ordered();
 }
