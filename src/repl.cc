@@ -1,10 +1,10 @@
 #include "repl.h"
 
 void repl::run() {
-  std::cout << "RUNNING REPL" << std::endl;
   std::string command;
 
   while(command != "q") {
+    std::cout << "> " << std::endl;
     std::getline(std::cin, command);
     std::istringstream ss(command);
     std::vector<std::string> fields(std::istream_iterator<std::string>{ss},
