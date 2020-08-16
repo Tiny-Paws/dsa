@@ -28,9 +28,24 @@ Node* BST::insert(Node* node, int data) {
 void BST::preorder(Node* node) {
   if(!node)
     return;
-  std::cout << node->data << std::endl;
+  std::cout << node->data << " ";
   this->preorder(node->left);
   this->preorder(node->right);
+}
+
+void BST::inorder(Node* node) {
+  if(!node)
+    return;
+  this->inorder(this->root->left);
+  std::cout << this->root->data << " ";
+}
+
+void BST::postorder(Node* node) {
+  if(!node)
+    return;
+  this->postorder(this->root->right);
+  this->postorder(this->root->left);
+  std::cout << this->root->data << " ";
 }
 
 void BST::tree_view() {

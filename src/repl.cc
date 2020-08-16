@@ -81,5 +81,6 @@ void repl::bst(std::vector<std::string> fields) {
       bst->preorder(bst->root);
     else if(fields[2] == "height")
       std::cout << bst->height(bst->root) << std::endl;
+    std::cout << std::endl;
   }
 }

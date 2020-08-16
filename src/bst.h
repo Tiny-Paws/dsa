@@ -13,6 +13,8 @@ struct BST {
   int height(Node* ); // REPL missing
   void insert(int);
   void preorder(Node*);
+  void inorder(Node*);
+  void postorder(Node*);
   void tree_view();
 
 private:
