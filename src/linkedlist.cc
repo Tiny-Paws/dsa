@@ -3,12 +3,14 @@
 SinglyLinkedListNode* LinkedList::insert(SinglyLinkedListNode* node, int data) {
   if(!node)
     return new SinglyLinkedListNode(data);
-  return insert(node->next, data);
+
+  node->next = insert(node->next, data);
+  return node;
 }
 
 void LinkedList::insert(int data) {
   // DOESNT WORK - TO FIX
-  insert(this->head, data);
+  head = insert(this->head, data);
   std::cout << data << " inserted" << std::endl;
 }
 
