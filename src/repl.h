@@ -15,6 +15,7 @@ namespace repl {
     std::unordered_map<std::string, LinkedList*> linkedlist;
   } state;
   void run();
+  void list_everything();
   void list_bst();
   void list_linkedlist();
   void create_bst(std::string);

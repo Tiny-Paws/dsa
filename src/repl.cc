@@ -22,17 +22,25 @@ void repl::run() {
   }
 }
 
+// Very ugly way of doing things
+// Must be changed
+// Must have a list_container<T>(std::string prefix)
 decltype(*repl::list_bst) repl::list(std::vector<std::string> fields) {
-  auto err = [](){std::cout << "Wrong command" << std::endl;};
   if(fields.size() < 1)
-    return *err;
+    return *list_everything;
 
   if(fields[0] == "bst")
     return *list_bst;
   else if(fields[0] == "linkedlist")
     return *list_linkedlist;
+}
 
-  return *err;
+void repl::list_everything() {
+  if(!state.linkedlist.empty()) {
+    std::cout << "Linked List :" << std::endl;
+    for(const auto& item : state.linkedlist)
+      std::cout << "\t" << item.first << std::endl;
+  }
 }
 
 // CHANGE THESE LIST FUNCTIONS TO TAKE AN ARG AND ITERATE OVER
