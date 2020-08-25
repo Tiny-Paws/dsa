@@ -9,7 +9,6 @@ SinglyLinkedListNode* LinkedList::insert(SinglyLinkedListNode* node, int data) {
 }
 
 void LinkedList::insert(int data) {
-  // DOESNT WORK - TO FIX
   head = insert(this->head, data);
   std::cout << data << " inserted" << std::endl;
 }
