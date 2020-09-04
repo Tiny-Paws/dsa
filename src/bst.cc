@@ -41,6 +41,26 @@ void BST::inorder(Node* node) {
   this->inorder(node->right);
 }
 
+void BST::inorder_iterative(Node* node) {
+  if(!node)
+    return;
+
+  auto curr = node;
+  std::stack<Node*> stack;
+
+  while(curr || !stack.empty()) {
+    while(curr) {
+      stack.push(curr);
+      curr = curr->left;
+    }
+
+    curr = stack.top();
+    stack.pop();
+    std::cout << curr->data << " ";
+    curr = curr->right;
+  }
+}
+
 void BST::postorder(Node* node) {
   if(!node)
     return;

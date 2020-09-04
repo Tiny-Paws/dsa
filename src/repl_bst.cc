@@ -35,6 +35,7 @@ void repl::bst(std::vector<std::string> fields) {
       bst->preorder(bst->root);
     else if(fields[2] == "inorder")
       bst->inorder(bst->root);
+    //bst->inorder_iterative(bst->root);
     else if(fields[2] == "postorder")
       bst->postorder(bst->root);
     else if(fields[2] == "height")

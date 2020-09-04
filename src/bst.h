@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <stack>
 #include "node.h"
 
 struct BST {
@@ -14,6 +15,7 @@ struct BST {
   void insert(int);
   void preorder(Node*);
   void inorder(Node*);
+  void inorder_iterative(Node*);
   void postorder(Node*);
   void tree_view();
 
